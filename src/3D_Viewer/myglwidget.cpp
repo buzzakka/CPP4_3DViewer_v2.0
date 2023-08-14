@@ -1,56 +1,48 @@
 #include "myglwidget.h"
 #include <QVector>
+#include <vector>
+#include "../model/parser.h"
+#include "../model/scene.h"
 
 MyGlWidget::MyGlWidget(QWidget *parent)
     : QOpenGLWidget{parent}
 {
 
 }
+//std::vector<double> v_arr = {
+//    -0.5, -0.5, 0.5,      -0.5, 0.5, 0.5,       0.5, 0.5, 0.5,    0.5, -0.5, 0.5
+//        -0.5, -0.5, -0.5,     -0.5, 0.5, -0.5,      0.5, 0.5, -0.5,   0.5, -0.5, -0.5
+//};
+//std::vector<int> f_arr = {
+//    0, 1, 1, 2, 2, 3, 3, 0
+//};
+void MyGlWidget::initializeGL() {glEnable(GL_DEPTH_TEST);}
+void MyGlWidget::resizeGL(int w, int h) {glViewport(0, 0, w, h);}
+void MyGlWidget::paintGL() {
+    glClearColor(.0f, .0f, .0f, .0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    float fov = 60.0 * M_PI / 180;
+    float heapHeight = 1 / (2 * tan(fov / 2));
+    glFrustum(-1, 1, -1, 1, heapHeight, 100);
+    glTranslated(0, 0, -heapHeight * 3);
 
-void MyGlWidget::initializeGL() {   // Вызывается один раз при открытии проги
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glEnable(GL_DEPTH_TEST);
-}
-float arr[] = {
-    -0.5, -0.5, 0.5,      0.5, -0.5, 0.5,       0.5, 0.5, 0.5,        -0.5, 0.5, 0.5,
-    0.5, -0.5, -0.5,      -0.5, -0.5, -0.5,       -0.5, 0.5, -0.5,        0.5, 0.5, -0.5,
-    -0.5, -0.5, -0.5,      -0.5, -0.5, 0.5,       -0.5, 0.5, 0.5,        -0.5, 0.5, -0.5,
-    0.5, -0.5, 0.5,      0.5, -0.5, -0.5,       0.5, 0.5, -0.5,        0.5, 0.5, 0.5,
-    -0.5, -0.5, 0.5,      0.5, -0.5, 0.5,       0.5, -0.5, -0.5,        -0.5, -0.5, -0.5,
-    -0.5, 0.5, 0.5,      0.5, 0.5, 0.5,       0.5, 0.5, -0.5,        -0.5, 0.5, -0.5,
-};
-float arr2[] = {
-    -0.5, -0.5, 0.5,      0.5, -0.5, 0.5,       0, 0.5, 0,      // front
-    0.5, -0.5, -0.5,      -0.5, -0.5, -0.5,       0, 0.5, 0,    // back
-    -0.5, -0.5, -0.5,      -0.5, -0.5, 0.5,       0, 0.5, 0,    // left
-    0.5, -0.5, 0.5,      0.5, -0.5, -0.5,       0, 0.5, 0,      // right
-    -0.5, -0.5, 0.5,      0.5, -0.5, 0.5,       0.5, -0.5, -0.5,        -0.5, -0.5, -0.5, // bot
-};
-
-void MyGlWidget::paintGL() {    // Вызывается каждый раз при отрисовке
-    glClearColor(0.0f, 1.0f, 0.0f, 0.0f); // задает четкие значения для буферов цвета
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   // Очищает буферы (тут буфер цвета)
-    glMatrixMode(GL_MODELVIEW); // указывает, какая матрица является текущей матрицей
-    glLoadIdentity();   // загружаем единичную матрицу
-
-    glTranslatef(0, 0, -2);
+//    glTranslatef(0, 0, -2);
     glRotatef(xRot, 1, 0, 0);
     glRotatef(yRot, 0, 1, 0);
-
     DrawFigure();
 }
-void MyGlWidget::resizeGL(int w, int h) {   // Вызывется при перерисовке
-    glViewport(0, 0, w, h); // Задает окно просмотра
-    glMatrixMode(GL_PROJECTION); // указывает, какая матрица является текущей матрицей.
-    glLoadIdentity(); // заменяет текущую матрицу матрицей идентификации
-//    glOrtho(-1, 1, -1, 1, 1, 2); // умножает текущую матрицу на орфографическую матрицу
-    glFrustum(-1, 1, -1, 1, 1, 3); // задает перспективную матрицу
-}
-
 void MyGlWidget::DrawFigure() {
-    glVertexPointer(3, GL_FLOAT, 0, &arr2); //определяет массив данных вершин
+    s21::FileReader f_reader;
+    s21::Scene scene = f_reader.ReadScene("/Users/marsel/Desktop/git/temp/CPP4_3DViewer_v2.0/src/model/obj_files/test1.obj");
+    s21::Figure figure = scene.get_figure();
+    std::vector<int> f_arr = figure.get_facets();
+    std::vector<double> v_arr = figure.get_vertices();
+
+    glVertexPointer(3, GL_DOUBLE, 0, &v_arr[0]); //определяет массив данных вершин
     glEnableClientState(GL_VERTEX_ARRAY); // разрешаем массив вершин
-    glDrawArrays(GL_LINE_LOOP, 0, 16);
+    glDrawElements(GL_LINES, f_arr.size(), GL_UNSIGNED_INT, &f_arr[0]);
     glDisableClientState(GL_VERTEX_ARRAY);
 }
 void MyGlWidget::mousePressEvent(QMouseEvent* mo) {

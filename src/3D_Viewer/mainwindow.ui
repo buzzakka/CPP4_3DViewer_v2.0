@@ -17,9 +17,9 @@
    <widget class="MyGlWidget" name="myGlWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>19</x>
       <y>10</y>
-      <width>500</width>
+      <width>761</width>
       <height>500</height>
      </rect>
     </property>

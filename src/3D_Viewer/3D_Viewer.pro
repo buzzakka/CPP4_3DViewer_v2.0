@@ -14,6 +14,8 @@ SOURCES += \
     myglwidget.cpp
 
 HEADERS += \
+    ../model/parser.h \
+    ../model/scene.h \
     mainwindow.h \
     myglwidget.h
 

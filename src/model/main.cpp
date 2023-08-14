@@ -1,4 +1,5 @@
 #include "model.h"
+#include <vector>
 
 int main() {
     s21::FileReader test;

@@ -3,5 +3,6 @@
 
 #include "scene.h"
 #include "parser.h"
+#include "facade.h"
 
 #endif // S21_3D_VIEWER_MODEL_H

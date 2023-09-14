@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Viewer</class>
+ <widget class="QMainWindow" name="Viewer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>3DViewer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="OpenFile">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>70</y>
+      <width>260</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>Open File</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="FileName">
+    <property name="geometry">
+     <rect>
+      <x>885</x>
+      <y>10</y>
+      <width>195</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="FNL">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>10</y>
+      <width>65</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>File name:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="VCL">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>40</y>
+      <width>45</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Vertex:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="VCount">
+    <property name="geometry">
+     <rect>
+      <x>865</x>
+      <y>40</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ECount">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>40</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="FCL">
+    <property name="geometry">
+     <rect>
+      <x>955</x>
+      <y>40</y>
+      <width>45</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Edges:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="XMoveValue">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>140</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="MXL">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>140</y>
+      <width>65</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Move oX:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MXLeft">
+    <property name="geometry">
+     <rect>
+      <x>975</x>
+      <y>140</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string> ←</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MXRight">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>140</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string> →</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MYDown">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>175</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>↓</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="YMoveValue">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>175</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MYUp">
+    <property name="geometry">
+     <rect>
+      <x>975</x>
+      <y>175</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>↑</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="MYL">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>175</y>
+      <width>65</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Move oY:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ZMoveValue">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>210</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MZClose">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>210</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="MZL">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>210</y>
+      <width>65</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Move oZ:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MZFar">
+    <property name="geometry">
+     <rect>
+      <x>975</x>
+      <y>210</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QDial" name="OXRotate">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>255</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="sliderPosition">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="RotateXL">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>240</y>
+      <width>30</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>oX:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="RotateYL">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>240</y>
+      <width>30</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>oY:</string>
+    </property>
+   </widget>
+   <widget class="QDial" name="OYRotate">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>255</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="sliderPosition">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="RotateZL">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>240</y>
+      <width>30</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>oZ:</string>
+    </property>
+   </widget>
+   <widget class="QDial" name="OZRotate">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>255</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="sliderPosition">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ScalePlus">
+    <property name="geometry">
+     <rect>
+      <x>975</x>
+      <y>365</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ScaleValue">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>365</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1.1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ScaleL">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>365</y>
+      <width>65</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Scale:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ScaleMinus">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>365</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>400</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="ProjectionLayout">
+     <item>
+      <widget class="QLabel" name="ProjectionL">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Projection:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="Parallel">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Parallel</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="Central">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Central</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>430</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="StippleLayout">
+     <item>
+      <widget class="QLabel" name="Stipple">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Stipple:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="StippleYes">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Yes</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="StippleNo">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>No</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="LColor">
+    <property name="geometry">
+     <rect>
+      <x>945</x>
+      <y>495</y>
+      <width>65</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>Line</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="VColor">
+    <property name="geometry">
+     <rect>
+      <x>1015</x>
+      <y>495</y>
+      <width>65</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>Vertex</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="LWidth">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>525</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Line width:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LWPlus">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>550</y>
+      <width>60</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LWMinus">
+    <property name="geometry">
+     <rect>
+      <x>885</x>
+      <y>550</y>
+      <width>60</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="VWidth">
+    <property name="geometry">
+     <rect>
+      <x>955</x>
+      <y>525</y>
+      <width>95</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Vertex width:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="VWMinus">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>550</y>
+      <width>60</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="VWPlus">
+    <property name="geometry">
+     <rect>
+      <x>955</x>
+      <y>550</y>
+      <width>60</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>460</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="VertexLayout">
+     <item>
+      <widget class="QRadioButton" name="VertexNo">
+       <property name="text">
+        <string>No</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="VertexCircle">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>circle</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="VertexSquare">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>square</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="VertexLable">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>460</y>
+      <width>60</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Vertex:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="VertexLable_2">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>495</y>
+      <width>55</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Color:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="MColor">
+    <property name="geometry">
+     <rect>
+      <x>875</x>
+      <y>495</y>
+      <width>65</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>Main</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="GIF">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>580</y>
+      <width>125</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>GIF ▶</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Screen">
+    <property name="geometry">
+     <rect>
+      <x>955</x>
+      <y>580</y>
+      <width>125</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+  border: 1px solid gray;
+}
+
+QPushButton:pressed {
+  background-color: white;
+}</string>
+    </property>
+    <property name="text">
+     <string>Screenshot</string>
+    </property>
+   </widget>
+   <widget class="s21::OpenGL" name="OGL" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>650</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="degX">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>340</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="degY">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>340</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="degZ">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>340</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>s21::OpenGL</class>
+   <extends>QWidget</extends>
+   <header location="global">view/opengl.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
